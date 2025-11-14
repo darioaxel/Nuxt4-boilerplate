@@ -1,4 +1,6 @@
-import { PrismaClient, Role } from "@prisma/client"
+import pkg from '@prisma/client'
+const { PrismaClient, Role } = pkg
+
 import bcrypt from "bcrypt"
 
 const prisma = new PrismaClient()

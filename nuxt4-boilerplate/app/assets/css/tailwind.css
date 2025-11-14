@@ -1,9 +1,9 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
+@import './themes.css';
 
 @custom-variant dark (&:is(.dark *));
 
-@import './themes.css';
 
 @theme inline {
   --breakpoint-3xl: 1600px;

@@ -1,13 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css'],
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-  },
-
-  components: [
+    components: [
     {
       path: '~/components',
       extensions: ['.vue'],
