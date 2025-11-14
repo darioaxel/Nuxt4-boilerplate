@@ -20,6 +20,7 @@ const logout = async () => {
   <div>
     <h1>Página protegida</h1>
     <p>Bienvenido: {{ user?.email }}</p>
+    <p>Rol: {{ user?.role }}</p>
   </div>
   <button
       @click="logout"

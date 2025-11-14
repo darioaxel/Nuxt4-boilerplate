@@ -1,31 +1,31 @@
-import { prisma } from '~~/server/utils/prisma'
-import bcrypt from 'bcrypt'
+import { PrismaClient } from '@prisma/client'
+import bcrypt from "bcrypt"
+
+const prisma = new PrismaClient()
 
 export default defineEventHandler(async (event) => {
-  const { email, password } = await readBody(event)
-
-  if (!email || !password) {
-    throw createError({ statusCode: 400, message: 'Email y contraseña requeridos' })
-  }
+  const body = await readBody(event)
+  const { email, password } = body
 
   const user = await prisma.user.findUnique({ where: { email } })
 
   if (!user) {
-    throw createError({ statusCode: 401, message: 'Credenciales inválidas' })
+    throw createError({ statusCode: 400, message: "Usuario no encontrado" })
   }
 
-  const ok = await bcrypt.compare(password, user.password)
-  if (!ok) {
-    throw createError({ statusCode: 401, message: 'Credenciales inválidas' })
+  const valid = await bcrypt.compare(password, user.password)
+  if (!valid) {
+    throw createError({ statusCode: 400, message: "Credenciales incorrectas" })
   }
 
+  // Guardar sesión
   await setUserSession(event, {
     user: {
       id: user.id,
       email: user.email,
-    },
-    loggedInAt: Date.now(),
+      role: user.role // "admin", "user", "root"
+    }
   })
 
-  return { ok: true }
+  return { success: true }
 })

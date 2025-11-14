@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
   return {
     id: session.user.id,
     email: session.user.email,
+    role: session.user.role,
     loggedInAt: session.loggedInAt,
   }
 })
