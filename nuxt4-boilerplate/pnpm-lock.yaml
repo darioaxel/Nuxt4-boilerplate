@@ -50,6 +50,9 @@ importers:
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
+      lucide-vue-next:
+        specifier: ^0.554.0
+        version: 0.554.0(vue@3.5.24(typescript@5.9.3))
       nuxt:
         specifier: ^4.2.1
         version: 4.2.1(@parcel/watcher@2.5.1)(@types/node@24.10.1)(@vue/compiler-sfc@3.5.24)(db0@0.3.4)(eslint@9.39.1(jiti@2.6.1))(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.53.2)(terser@5.44.1)(typescript@5.9.3)(vite@7.2.2(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.1))(vue-tsc@2.2.12(typescript@5.9.3))(yaml@2.8.1)
@@ -4077,6 +4080,11 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lucide-vue-next@0.554.0:
+    resolution: {integrity: sha512-nDchDVm/J3mv+7aYtDh7aLkeBVtzDNyaelKEOlhAE0MKMtDfB9fFatx2siqZUBYhLHjMK5DZnaAC/ODT9vQ63Q==}
+    peerDependencies:
+      vue: '>=3.0.1'
 
   magic-regexp@0.10.0:
     resolution: {integrity: sha512-Uly1Bu4lO1hwHUW0CQeSWuRtzCMNO00CmXtS8N6fyvB3B979GOEEeAkiTUDsmbYLAbvpUS/Kt5c4ibosAzVyVg==}
@@ -10153,6 +10161,10 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lucide-vue-next@0.554.0(vue@3.5.24(typescript@5.9.3)):
+    dependencies:
+      vue: 3.5.24(typescript@5.9.3)
 
   magic-regexp@0.10.0:
     dependencies:
