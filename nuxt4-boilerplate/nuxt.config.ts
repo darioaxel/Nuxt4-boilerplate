@@ -39,5 +39,26 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },  
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  icon: {
+     provider: 'iconify',
+    aliases: {
+       'Bird': 'mdi:bird',
+      'Mountain': 'lucide:mountain',
+      'Music': 'lucide:music',
+      'Mail': 'lucide:mail',
+      'Users': 'lucide:users',
+      'User': 'lucide:user',
+      'UserPlus': 'lucide:user-plus',
+      'FileText': 'lucide:file-text',
+      'Menu': 'lucide:menu',
+      'ChevronDown': 'lucide:chevron-down',
+      'LogIn': 'lucide:log-in',
+      'Calendar': 'lucide:calendar',
+      'ArrowRight': 'lucide:arrow-right',
+      'AlertCircle': 'lucide:alert-circle',
+      'Search': 'lucide:search',
+      'X': 'lucide:x',
+    }
+  }
 })
