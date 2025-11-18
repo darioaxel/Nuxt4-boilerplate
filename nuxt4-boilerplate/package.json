@@ -7,11 +7,13 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "prisma generate && nuxt prepare",
     "prisma:migrate": "prisma migrate dev",
     "prisma:generate": "prisma generate"
+    
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/image": "^1.11.0",
     "@nuxtjs/fontaine": "^0.4.4",
