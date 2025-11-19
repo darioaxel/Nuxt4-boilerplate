@@ -77,13 +77,13 @@
                   <DropdownMenuLabel>Área de Socios</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem as-child>
-                    <NuxtLink to="/socios/area">
+                    <NuxtLink to="/socios/login">
                       <Icon name="User" class="mr-2 h-4 w-4" />
                       Mi Área
                     </NuxtLink>
                   </DropdownMenuItem>
                   <DropdownMenuItem as-child>
-                    <NuxtLink to="/socios/registro">
+                    <NuxtLink to="/socios/signup">
                       <Icon name="UserPlus" class="mr-2 h-4 w-4" />
                       Hazte Socio
                     </NuxtLink>
@@ -105,7 +105,7 @@
         <!-- Right side actions -->
         <div class="flex items-center gap-4">
           <!-- Desktop Login -->
-          <NuxtLink to="/login" class="hidden lg:block">
+          <NuxtLink to="/socios/login" class="hidden lg:block">
             <Button variant="outline" class="border-tyto-primary text-tyto-primary hover:bg-tyto-primary hover:text-white">
               <Icon name="LogIn" class="mr-2 h-4 w-4" />
               Login

@@ -42,10 +42,9 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2025-11-03",
 
-  // ❌ ELIMINA ESTO
-   vite: {
+  vite: {
      plugins: [tailwindcss()],
-   },
+  },
   
   devtools: { enabled: true },
   
