@@ -3,30 +3,30 @@ const email = ref('')
 const password = ref('')
 const errorMessage = ref('')
 
-const { loggedIn, fetch } = useUserSession()
+const { loggedIn, fetch: refreshSession } = useUserSession()
 
 // Si ya está logueado, redirigimos desde aquí también
 if (loggedIn.value) {
-  navigateTo('/protected')
+  await navigateTo('/protected')
 }
 
 const loginUser = async () => {
   errorMessage.value = ''
 
-  const { error } = await useFetch('/api/auth/login', {
-    method: 'POST',
-    body: { email: email.value, password: password.value }
-  })
-
-  if (error.value) {
+  try {
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: { email: email.value, password: password.value }
+    })
+  } catch {
     errorMessage.value = 'Credenciales incorrectas'
     return
   }
 
   // refrescamos la sesión en el cliente
-  await fetch()
+  await refreshSession()
 
-  navigateTo('/protected')
+  return navigateTo('/protected')
 }
 </script>
 

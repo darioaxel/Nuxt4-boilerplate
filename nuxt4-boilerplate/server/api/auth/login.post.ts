@@ -1,7 +1,4 @@
-import { PrismaClient } from '@prisma/client'
 import bcrypt from "bcrypt"
-
-const prisma = new PrismaClient()
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
@@ -23,7 +20,7 @@ export default defineEventHandler(async (event) => {
     user: {
       id: user.id,
       email: user.email,
-      role: user.role // "admin", "user", "root"
+      role: user.role // "USER" | "ADMIN" | "ROOT"
     }
   })
 

@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     "pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/color-mode",
     "@vee-validate/nuxt",
-    "@nuxtjs/fontaine",
     "nuxt-vitalizer",
     "nuxt-security",
     "@nuxt/eslint",
@@ -34,10 +33,17 @@ export default defineNuxtConfig({
      */
     componentDir: '@/components/ui'
   },
+  i18n: {
+    defaultLocale: "en",
+    locales: [
+      { code: "en", language: "en-US", name: "English" },
+      { code: "es", language: "es-ES", name: "Español" },
+    ],
+  },
   css: ["~/assets/css/tailwind.css"],
-  compatibilityDate: "2025-11-03",
+  compatibilityDate: "2026-10-27",
   vite: {
     plugins: [tailwindcss()],
-  },  
+  },
   devtools: { enabled: true }
 })

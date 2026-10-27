@@ -7,8 +7,8 @@ const loading = ref(false)
 const errorMsg = ref("")
 
 // Si el usuario actual está logueado y es ROOT, puede crear usuarios con rol
-const session = useUserSession()
-const canSelectRole = computed(() => session.user?.role === "root")
+const { user } = useUserSession()
+const canSelectRole = computed(() => user.value?.role === "ROOT")
 
 async function submit() {
   errorMsg.value = ""
@@ -26,7 +26,7 @@ async function submit() {
 
     // Tras registro, el backend ya crea la sesión → redirigir
     return navigateTo("/")
-  } 
+  }
   catch (err) {
     errorMsg.value = err?.data?.message ?? "Error al registrar"
   }

@@ -1,9 +1,3 @@
-// 1. Primero importa Prisma con el método que funciona con pnpm
-import { PrismaClient } from '@prisma/client'
-
-// 2. Crea la instancia (o usa el singleton si lo configuraste)
-const prisma = new PrismaClient()
-
 export default defineEventHandler(async (event) => {
   const session = await getUserSession(event)
 

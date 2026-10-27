@@ -1,7 +1,5 @@
-import { PrismaClient, Role } from "@prisma/client"
+import { Role } from "~~/app/generated/prisma/client"
 import bcrypt from "bcrypt"
-
-const prisma = new PrismaClient()
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
@@ -21,7 +19,7 @@ export default defineEventHandler(async (event) => {
   // Hash password
   const hashed = await bcrypt.hash(password, 10)
 
-  // Crear usuario con rol (o user si no lo especifican)
+  // Crear usuario con rol (o USER si no lo especifican)
   const user = await prisma.user.create({
     data: {
       email,
@@ -31,12 +29,11 @@ export default defineEventHandler(async (event) => {
   })
 
   // Guardamos sesión en auth-utils
-  const session = useUserSession(event)
-  await session.update({
+  await setUserSession(event, {
     user: {
       id: user.id,
       email: user.email,
-      role: user.role.toLowerCase()  // admin → "admin"
+      role: user.role
     }
   })
 
